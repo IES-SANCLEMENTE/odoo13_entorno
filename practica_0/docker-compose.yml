@@ -1,0 +1,21 @@
+version: '2'
+services:
+#Service apache toma el Dockerfile de ./build/base
+ base:
+  build: ./build/base
+  ports:
+  - "8022:22"
+#  volumes:
+#  - config:/etc
+  networks:
+   practicas:
+    ipv4_address: 192.168.99.2
+#volumes:
+#  config:
+networks:
+  practicas:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.99.0/24
+         gateway: 192.168.99.1
