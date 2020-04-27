@@ -1,8 +1,8 @@
-# [Título de la práctica]
+# Entorno para ejecutar Odoo 13
 
 ## Objetivo
 
-[Objetivos de la práctica y aspectos a trabajar]
+En esta práctica se va a desplegar Odoo 13 en un docker container
 
 ## Pasos previos a realizar
 
@@ -24,7 +24,7 @@ Dentro del directorio **tests/vars** hay un archivo **alumno.yaml**, el cual con
 
 ## Enunciado
 
-[Aquí irá el enunciado de la práctica o un enlace a un documento descriptivo de la misma]
+Podéis descargar el enunciado de la práctica [aquí](https://www.dropbox.com/s/5fmnjrzr2gt2gw9/ENTORNO_ODOO_DOCKER.odt?dl=0)
 
 ## Escenario
 
@@ -32,7 +32,7 @@ El escenario es el conjunto de elementos necesarios para la realización de la p
 
 ### Creación del escenario de la práctica
 
-Para crear el escenario de la práctica entramos en el directorio con el nombre de la práctica (practica_xxx...) y dentro del mismo ejecutamos desde la terminal el comando:
+Para crear el escenario de la práctica entramos en el directorio con el nombre de la práctica y dentro del mismo ejecutamos desde la terminal el comando:
 
 `docker-compose up -d`
 
