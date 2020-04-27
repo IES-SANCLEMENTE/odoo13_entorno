@@ -32,7 +32,17 @@ El escenario es el conjunto de elementos necesarios para la realización de la p
 
 ### Creación del escenario de la práctica
 
-Para crear el escenario de la práctica entramos en el directorio con el nombre de la práctica y dentro del mismo ejecutamos desde la terminal el comando:
+Antes de crear el escenario hay que realizar un cambio en el archivo **docker-compose.yml **dentro del directorio del escenario de la práctica. En este caso dentro del directorio odoo13_entorno.
+
+En la sección *volumes* sustituís:
+
+**/home/javierfp/odoo13** 
+
+por la misma ruta pero en vuestro directorio home, el cual tendrá la forma: /home/SANCLEMENTE/<vuestro_usuario>. Por ejemplo si mi usuario es javierfp, la ruta sería:
+
+**/home/SANCLEMENTE/javierfp**
+
+Una vez realizado el cambio anterior, para crear el escenario de la práctica entramos en el directorio en el que se ubica el **docker-compose.yml** y dentro del mismo ejecutamos desde la terminal el comando:
 
 `docker-compose up -d`
 
@@ -48,6 +58,45 @@ Más adelante cuando retomemos el trabajo levantamos de nuevo el escenario ejecu
 
 `docker-compose start`
 
+### Acceder al container
+
+Podemos acceder a un container de varios modos
+
+#### Acceder mediante docker-compose exec
+
+**docker-compose exec nombre_servicio bash**
+
+donde nombre_servicio es el nombre del servicio dentro del archivo docker-compose para el container, los cuales se encuentran definidos dentro de la sección services en el archivo encabezando cada sección de creación de container. Por ejemplo si tengo en el docker-compose:
+
+`version: '2'`
+`services:`
+ `#Service odoo13 toma el Dockerfile de ./build/odoo13`
+ `odoo13:`
+ 
+ etc.
+ 
+ entonces podría acceder a ese container con el comando:
+ 
+ `docker-compose exec odoo13 bash` 
+ 
+#### Acceder mediante docker exec -it
+
+También podría acceder directamente el container usando el nombre del container (no el del servicio docker-compose).
+ 
+ Para ver los docker container en ejecución del escenario ejecutamos:
+
+`docker ps`
+
+Si el nombre del container es **odoo13_entorno_odoo13_1** accederemos a él con:
+
+`docker exec -it odoo13_entorno_odoo13_1 bash`
+
+#### Acceder mediante ssh
+
+Otra opción sería usar la propia dirección IP del container y acceder por ssh, pues éste servicio está habilitado por defecto en el container. Si la dirección IP es por ejemplo **192.168.199.13**, ejecutaría:
+
+`ssh root@192.168.199.13`
+
 ### Eliminar el escenario
 
 Al terminar la práctica y entregar los resultados podéis eliminar el escenario, aunque es recomendable dejarlo durante un tiempo por si necesitáis repasar. Para eliminar los container del escenario y todos los elementos ejecutamos desde el mismo directorio:
@@ -56,19 +105,17 @@ Al terminar la práctica y entregar los resultados podéis eliminar el escenario
 
 O si queremos eliminar también las imágenes docker
 
-`docker-compose down --rmi`
+`docker-compose down --rmi all`
+
+Si en el escenario se ha creado algún volumen de datos asociado al container y queremos que éstos se borren, deberíamos también añadir la opción -v, por ejemplo para borrar containers, networks, imaǵenes y volúmenes usaríamos:
+
+`docker-compose down --rmi all -v`
 
 ## Realización de la práctica
 
 Una vez creado el escenario de la práctica es el momento de tomar el enunciado y realizar las tareas que se indican en el mismo. El escenario anterior habrá creado uno o varios docker containers y todos los artefactos necesarios.
 
-En el enunciado de la práctica se te indicará qué hacer en cada container. Es importante que sepas acceder a un docker container, lo cual es muy fácil. Supongamos que quieres iniciar una sesión de terminal en un container de nombre practica_comandos_1. Para ello ejecutamos
-
-`docker exec -it practica_comandos_1 bash`
-
-Para ver los docker container en ejecución del escenario ejecutamos:
-
-`docker ps`
+En el enunciado de la práctica se te indicará qué hacer en cada container. 
 
 ## Realización de los test
 

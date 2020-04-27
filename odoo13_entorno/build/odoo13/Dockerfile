@@ -23,11 +23,6 @@ RUN set -x; \
 RUN set -x; \
 	echo "root:$ODOOPASS" | chpasswd
 
-#Crea directorio para fuentes de odoo
-RUN set -x; \
-	mkdir /opt/$ODOOUSER/src && \
-	chown $ODOOUSER /opt/$ODOOUSER/src
-
 #Instalamos paquetes de utilidades
 RUN set -x; \
 	apt update && apt install -y vim git curl iputils-ping net-tools nano wget openssh-server 
