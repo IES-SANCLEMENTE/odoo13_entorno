@@ -9,15 +9,5 @@ services:
   #Cambiarlo para el home de cada usuario
   volumes:
   - /home/javierfp/odoo13:/opt/odoo/src
-  networks:
-   odoo:
-    ipv4_address: 192.168.199.13
 volumes:
   odoo_source:
-networks:
-  odoo:
-    driver: bridge
-    ipam:
-     config:
-       - subnet: 192.168.199.0/24
-         gateway: 192.168.199.1
