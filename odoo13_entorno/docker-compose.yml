@@ -1,0 +1,22 @@
+version: '2'
+services:
+#Service odoo13 toma el Dockerfile de ./build/odoo13
+ odoo13:
+  build: ./build/odoo13
+  ports:
+  - "8069:8069"
+  #Cambiarlo para el home de cada usuario
+  volumes:
+  - /home/javierfp/odoo13:/opt/odoo/src
+  networks:
+   odoo:
+    ipv4_address: 192.168.199.13
+volumes:
+  odoo_source:
+networks:
+  odoo:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.199.0/24
+         gateway: 192.168.199.1
