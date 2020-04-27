@@ -69,8 +69,11 @@ Podemos acceder a un container de varios modos
 donde nombre_servicio es el nombre del servicio dentro del archivo docker-compose para el container, los cuales se encuentran definidos dentro de la sección services en el archivo encabezando cada sección de creación de container. Por ejemplo si tengo en el docker-compose:
 
 `version: '2'`
+
 `services:`
+
  `#Service odoo13 toma el Dockerfile de ./build/odoo13`
+ 
  `odoo13:`
  
  etc.
