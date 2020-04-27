@@ -24,7 +24,7 @@ Dentro del directorio **tests/vars** hay un archivo **alumno.yaml**, el cual con
 
 ## Enunciado
 
-Podéis descargar el enunciado de la práctica [aquí](https://www.dropbox.com/s/5fmnjrzr2gt2gw9/ENTORNO_ODOO_DOCKER.odt?dl=0)
+Podéis descargar el enunciado de la práctica [aquí](enunciado/ENTORNO_ODOO_DOCKER.odt)
 
 ## Escenario
 
