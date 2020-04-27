@@ -9,5 +9,3 @@ services:
   #Cambiarlo para el home de cada usuario
   volumes:
   - /home/javierfp/odoo13:/opt/odoo/src
-volumes:
-  odoo_source:
