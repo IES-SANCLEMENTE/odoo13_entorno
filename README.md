@@ -22,17 +22,13 @@ Dentro del directorio **tests/vars** hay un archivo **alumno.yaml**, el cual con
 
 *NOTAD que al ser formato YAML la sintaxis es del tipo clave: valor*
 
-## Enunciado
-
-Podéis descargar el enunciado de la práctica [aquí](enunciado/ENTORNO_ODOO_DOCKER.odt)
-
 ## Escenario
 
 El escenario es el conjunto de elementos necesarios para la realización de la práctica. Consistirá en un conjunto de contenedores docker, uno o más, con funciones bien establecidas y descritas en la práctica. Tendrás que realizar los pasos indicados en la práctica en ellos, es decir serán la base de trabajo.
 
 ### Creación del escenario de la práctica
 
-Antes de crear el escenario hay que realizar un cambio en el archivo **docker-compose.yml **dentro del directorio del escenario de la práctica. En este caso dentro del directorio odoo13_entorno.
+Antes de crear el escenario hay que realizar un cambio en el archivo **docker-compose.yml **dentro del directorio del escenario de la práctica. En este caso dentro del directorio **odoo13_entorno**.
 
 En la sección *volumes* sustituís:
 
