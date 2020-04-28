@@ -2,7 +2,7 @@ version: '2'
 services:
 #Service odoo13 toma el Dockerfile de ./build/odoo13
  odoo13:
-  build: ./build/odoo13
+  build: ./odoo13
   #Mapea el 8069 del container al anfitrión
   ports:
   - "8069:8069"
