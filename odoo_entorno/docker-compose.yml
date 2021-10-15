@@ -1,6 +1,6 @@
 version: '2'
 services:
-#Service odoo13 toma el Dockerfile de ./build/odoo13
+#Service odoo toma el Dockerfile de ./build/odoo
  odoo:
   build: ./odoo
   hostname: odoo
@@ -9,4 +9,4 @@ services:
   - "8069:8069"
   #Mapeo del directorio de la MV en el container
   volumes:
-  - /root/odoo/src:/opt/odoo/src
+  - ~/odoo/src:/opt/odoo/src
