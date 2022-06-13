@@ -1,9 +1,8 @@
 FROM debian:bullseye
 
-MAINTAINER javierfp <javierfp@iessanclemente.net>
+LABEL maintainer=javierfp@iessanclemente.net
 
 ENV TERM xterm
-ENV PASS=abc123.
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 LABEL distribucion="Debian 11"
