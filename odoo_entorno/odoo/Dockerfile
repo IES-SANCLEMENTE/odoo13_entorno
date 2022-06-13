@@ -8,7 +8,6 @@ ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 LABEL distribucion="Debian 11"
 LABEL descripcion="Imagen Odoo para prácticas"
-LABEL acceso="usuario: root, password: abc123."
 
 #Copiamos el entrypoint.sh al container
 COPY entrypoint.sh /usr/bin/entrypoint.sh
@@ -16,14 +15,8 @@ COPY entrypoint.sh /usr/bin/entrypoint.sh
 #Damos permiso al entrypoint
 RUN chmod +x /usr/bin/entrypoint.sh
 
-#Establecemos la password de root
-RUN echo "root:$PASS" | chpasswd
-
 #Instalamos paquetes de utilidades
-RUN apt update && apt install -y vim git curl iputils-ping net-tools nano wget openssh-server 
-
-#Configuramos openssh-server para poder acceder con root
-RUN echo "PermitRootLogin yes\nPasswordAuthentication yes" >> /etc/ssh/sshd_config
+RUN apt update && apt install -y vim git curl iputils-ping net-tools nano wget procps iproute2
 
 #Limpiando
 RUN apt clean
