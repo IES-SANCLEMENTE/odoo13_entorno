@@ -1,11 +1,11 @@
-FROM debian:bullseye
+FROM debian:12
 
 LABEL maintainer=javierfp@iessanclemente.net
 
 ENV TERM xterm
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-LABEL distribucion="Debian 11"
+LABEL distribucion="Debian 12"
 LABEL descripcion="Imagen Odoo para prácticas"
 
 #Copiamos el entrypoint.sh al container
@@ -15,10 +15,7 @@ COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
 #Instalamos paquetes de utilidades
-RUN apt update && apt install -y vim git curl iputils-ping net-tools nano wget procps iproute2
-
-#Limpiando
-RUN apt clean
+RUN apt update && apt install -y vim git curl iputils-ping net-tools nano wget procps iproute2 && apt clean
 
 #Comando para arrancar ssh y entrar en bucle de espera
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
